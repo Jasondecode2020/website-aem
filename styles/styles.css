@@ -168,6 +168,18 @@ a.button.secondary, button.secondary {
   color: var(--text-color)
 }
 
+a.button.primary, button.primary {
+  background-color: unset;
+  border: 2px solid currentcolor;
+  color: gray;
+}
+
+a.button.secondary:hover {
+  background-color: black;
+  border: 2px solid currentcolor;
+  color: var(--background-color)
+}
+
 main img {
   max-width: 100%;
   width: auto;
