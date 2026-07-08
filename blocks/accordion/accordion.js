@@ -31,3 +31,27 @@ export default function decorate(block) {
     row.replaceWith(details);
   });
 }
+
+function decorateAccordion(el) {
+  const titles = el.querySelectorAll(':scope > div:nth-child(odd)');
+  titles.forEach((title) => {
+    title.classList.add('item-title');
+
+    // Read title text before removing the inner div
+    const innerDiv = title.querySelector(':scope > div');
+    const titleText = innerDiv?.textContent?.trim() || '';
+
+    // Replace inner content with just the text
+    title.innerHTML = titleText;
+
+    title.nextElementSibling.classList.add('item-content');
+    title.addEventListener('click', () => {
+      title.classList.toggle('open');
+    });
+  });
+}
+
+const els = document.querySelectorAll('.accordion-image');
+els.forEach((el) => {
+  decorateAccordion(el);
+});
